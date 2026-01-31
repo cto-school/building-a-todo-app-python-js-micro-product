@@ -10,10 +10,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/">Todo App</a>
+            <a class="navbar-brand" href="index.html">Todo App</a>
             <div class="navbar-nav ms-auto">
-                <a class="nav-link active" href="/login">Login</a>
-                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link active" href="login.html">Login</a>
+                <a class="nav-link" href="register.html">Register</a>
             </div>
         </div>
     </nav>
@@ -45,7 +45,7 @@
 
                         <hr>
                         <p class="text-center mb-0">
-                            Don't have an account? <a href="/register">Register here</a>
+                            Don't have an account? <a href="register.html">Register here</a>
                         </p>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     localStorage.setItem('user', JSON.stringify(data.user));
 
                     alertArea.innerHTML = `<div class="alert alert-success">Login successful!</div>`;
-                    setTimeout(() => { window.location.href = '/dashboard'; }, 1000);
+                    setTimeout(() => { window.location.href = 'dashboard.html'; }, 1000);
                 } else {
                     alertArea.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
                 }

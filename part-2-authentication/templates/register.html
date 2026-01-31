@@ -9,10 +9,10 @@
 <body class="bg-light">
     <nav class="navbar navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/">Todo App</a>
+            <a class="navbar-brand" href="index.html">Todo App</a>
             <div class="navbar-nav flex-row gap-3">
-                <a class="nav-link" href="/login">Login</a>
-                <a class="nav-link active" href="/register">Register</a>
+                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link active" href="register.html">Register</a>
             </div>
         </div>
     </nav>
@@ -43,7 +43,7 @@
                         </form>
                         <hr>
                         <p class="text-center mb-0">
-                            Have an account? <a href="/login">Login</a>
+                            Have an account? <a href="login.html">Login</a>
                         </p>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
 
                 if (res.ok) {
                     alert.innerHTML = '<div class="alert alert-success">Registered! Redirecting...</div>';
-                    setTimeout(() => location.href = '/login', 1500);
+                    setTimeout(() => location.href = 'login.html', 1500);
                 } else {
                     alert.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
                 }

@@ -11,7 +11,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/">Todo App</a>
+            <a class="navbar-brand" href="index.html">Todo App</a>
             <div class="navbar-nav ms-auto" id="nav-links">
                 <!-- Links will be updated by JavaScript -->
             </div>
@@ -57,25 +57,25 @@
             if (token && user) {
                 // User is logged in
                 navLinks.innerHTML = `
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
                     <a class="nav-link" href="#" onclick="logout()">Logout</a>
                 `;
                 actionButtons.innerHTML = `
                     <div class="alert alert-success">
                         Welcome back, <strong>${user.username}</strong>!
                     </div>
-                    <a href="/dashboard" class="btn btn-success btn-lg">Go to Dashboard</a>
+                    <a href="dashboard.html" class="btn btn-success btn-lg">Go to Dashboard</a>
                 `;
             } else {
                 // User is not logged in
                 navLinks.innerHTML = `
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="register.html">Register</a>
                 `;
                 actionButtons.innerHTML = `
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="/register" class="btn btn-success btn-lg">Create Account</a>
-                        <a href="/login" class="btn btn-primary btn-lg">Login</a>
+                        <a href="register.html" class="btn btn-success btn-lg">Create Account</a>
+                        <a href="login.html" class="btn btn-primary btn-lg">Login</a>
                     </div>
                 `;
             }
@@ -84,7 +84,7 @@
         function logout() {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            window.location.href = '/';
+            window.location.href = 'index.html';
         }
     </script>
 </body>

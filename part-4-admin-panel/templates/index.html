@@ -10,7 +10,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/">Todo App</a>
+            <a class="navbar-brand" href="index.html">Todo App</a>
             <div class="navbar-nav ms-auto" id="nav-links"></div>
         </div>
     </nav>
@@ -43,9 +43,9 @@
             const actionButtons = document.getElementById('action-buttons');
 
             if (token && user) {
-                let adminLink = user.is_admin ? '<a class="nav-link text-warning" href="/admin">Admin</a>' : '';
+                let adminLink = user.is_admin ? '<a class="nav-link text-warning" href="admin.html">Admin</a>' : '';
                 navLinks.innerHTML = `
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
                     ${adminLink}
                     <a class="nav-link" href="#" onclick="logout()">Logout</a>
                 `;
@@ -54,18 +54,18 @@
                         Welcome back, <strong>${user.username}</strong>!
                         ${user.is_admin ? '<span class="badge bg-warning text-dark ms-2">Admin</span>' : ''}
                     </div>
-                    <a href="/dashboard" class="btn btn-success btn-lg me-2">My Dashboard</a>
-                    ${user.is_admin ? '<a href="/admin" class="btn btn-warning btn-lg">Admin Panel</a>' : ''}
+                    <a href="dashboard.html" class="btn btn-success btn-lg me-2">My Dashboard</a>
+                    ${user.is_admin ? '<a href="admin.html" class="btn btn-warning btn-lg">Admin Panel</a>' : ''}
                 `;
             } else {
                 navLinks.innerHTML = `
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="register.html">Register</a>
                 `;
                 actionButtons.innerHTML = `
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="/register" class="btn btn-success btn-lg">Create Account</a>
-                        <a href="/login" class="btn btn-primary btn-lg">Login</a>
+                        <a href="register.html" class="btn btn-success btn-lg">Create Account</a>
+                        <a href="login.html" class="btn btn-primary btn-lg">Login</a>
                     </div>
                 `;
             }
@@ -74,7 +74,7 @@
         function logout() {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            window.location.href = '/';
+            window.location.href = 'index.html';
         }
     </script>
 </body>

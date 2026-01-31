@@ -10,10 +10,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/">Todo App</a>
+            <a class="navbar-brand" href="index.html">Todo App</a>
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/login">Login</a>
-                <a class="nav-link active" href="/register">Register</a>
+                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link active" href="register.html">Register</a>
             </div>
         </div>
     </nav>
@@ -46,7 +46,7 @@
                         </form>
                         <hr>
                         <p class="text-center mb-0">
-                            Already have an account? <a href="/login">Login here</a>
+                            Already have an account? <a href="login.html">Login here</a>
                         </p>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
 
                 if (response.ok) {
                     alertArea.innerHTML = `<div class="alert alert-success">${data.message}!</div>`;
-                    setTimeout(() => { window.location.href = '/login'; }, 2000);
+                    setTimeout(() => { window.location.href = 'login.html'; }, 2000);
                 } else {
                     alertArea.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
                 }
