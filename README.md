@@ -1,98 +1,63 @@
-# Module 07: Building A Micro Product - To-Do List Management
+# Todo App - Learn Flask Step by Step
 
-## From Code to Concept: Launching Your First SaaS
-
-> **Psychology:** This is the "Aha!" moment. Students move away from isolated exercises and build a complete, cohesive product. By creating an Admin view, they understand the "Power Dynamic" of software: User vs. System.
+A complete Todo application built in 8 parts to learn Flask, databases, authentication, and more.
 
 ---
 
-## Overview
-
-This module guides you through building a complete, production-ready Todo application with:
-- User Authentication (JWT)
-- CRUD Operations
-- Admin Panel
-- Role-Based Access Control
-
----
-
-## Module Structure
+## Project Structure (8 Parts)
 
 ```
-module-07-todo-app/
-│
-├── README.md                    # This file
-│
-├── part-1-foundation/           # Project setup & Database models
-│   ├── app.py
-│   ├── models.py
-│   ├── templates/
-│   └── README.md
-│
-├── part-2-authentication/       # Register & Login with JWT
-│   ├── app.py
-│   ├── models.py
-│   ├── auth.py
-│   ├── templates/
-│   └── README.md
-│
-├── part-3-crud-operations/      # Todo CRUD with protected routes
-│   ├── app.py
-│   ├── models.py
-│   ├── auth.py
-│   ├── templates/
-│   └── README.md
-│
-├── part-4-admin-panel/          # Admin views (complete app)
-│   ├── app.py
-│   ├── models.py
-│   ├── auth.py
-│   ├── templates/
-│   └── README.md
-│
-└── part-5-homework/             # Practice assignment
-    ├── README.md
-    └── starter-code/
+todo-app/
+├── part-1-hello-flask/        # Flask basics
+├── part-2-database-setup/     # SQLAlchemy database
+├── part-3-user-registration/  # Registration form
+├── part-4-user-login/         # Login with JWT
+├── part-5-todo-crud/          # CRUD operations
+├── part-6-protected-routes/   # Authentication decorator
+├── part-7-admin-panel/        # Admin features
+└── part-8-homework/           # Practice assignment
 ```
 
 ---
 
 ## Learning Path
 
-| Part | Focus | Skills Learned |
+| Part | Topic | What You Learn |
 |------|-------|----------------|
-| **Part 1** | Foundation | Flask setup, SQLAlchemy models, One-to-Many relationships |
-| **Part 2** | Authentication | Password hashing, JWT tokens, localStorage |
-| **Part 3** | CRUD Operations | Protected routes, API design, Dynamic UI |
-| **Part 4** | Admin Panel | Role-based access, Internal tools, Conditional rendering |
-| **Part 5** | Homework | Apply all skills to add a new feature |
+| 1 | Hello Flask | Routes, templates, render_template() |
+| 2 | Database Setup | SQLAlchemy, models, queries |
+| 3 | User Registration | POST requests, JSON, form validation |
+| 4 | User Login | Password hashing, JWT tokens |
+| 5 | Todo CRUD | Create, Read, Update, Delete |
+| 6 | Protected Routes | @token_required decorator |
+| 7 | Admin Panel | @admin_required, user management |
+| 8 | Homework | Add priority feature yourself |
 
 ---
 
-## Database Design
+## How to Run Any Part
 
-### Tables
+```bash
+# Go to the part you want to run
+cd part-1-hello-flask
 
-**User Table**
-| Column | Type | Description |
-|--------|------|-------------|
-| id | Integer | Primary Key |
-| username | String(80) | Unique username |
-| email | String(120) | Unique email |
-| password_hash | String(256) | Hashed password |
-| is_admin | Boolean | Admin flag |
+# Install dependencies
+pip install -r requirements.txt
 
-**Todo Table**
-| Column | Type | Description |
-|--------|------|-------------|
-| id | Integer | Primary Key |
-| task_content | String(200) | Task text |
-| is_completed | Boolean | Completion status |
-| user_id | Integer | Foreign Key → User.id |
-
-### Relationship
+# Run the app
+python app.py
 ```
-One User → Many Todos (One-to-Many)
+
+Open: http://127.0.0.1:5000
+
+---
+
+## Admin Login (Part 7)
+
+When you run Part 7, default admin is created:
+```
+Email:    admin@example.com
+Password: admin123
 ```
 
 ---
@@ -102,128 +67,77 @@ One User → Many Todos (One-to-Many)
 | Component | Technology |
 |-----------|------------|
 | Backend | Flask 3.0 |
-| Database | SQLite + Flask-SQLAlchemy |
-| Authentication | JWT (PyJWT) |
-| Password Hashing | Werkzeug |
+| Database | SQLite + SQLAlchemy |
+| Auth | JWT (PyJWT) |
+| Password | Werkzeug |
 | Frontend | Bootstrap 5 |
-| API Style | RESTful |
 
 ---
 
-## Quick Start
+## Database Tables
 
-### Prerequisites
-- Python 3.8+
-- pip
+**User**
+| Field | Type |
+|-------|------|
+| id | Integer (Primary Key) |
+| username | String (Unique) |
+| email | String (Unique) |
+| password_hash | String |
+| is_admin | Boolean |
 
-### Run Any Part
-
-```bash
-# Navigate to the part you want to run
-cd part-4-admin-panel
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python app.py
-```
-
-Then open: `http://127.0.0.1:5000`
+**Todo**
+| Field | Type |
+|-------|------|
+| id | Integer (Primary Key) |
+| task_content | String |
+| is_completed | Boolean |
+| user_id | Foreign Key → User |
 
 ---
 
-## API Reference
+## API Endpoints
 
-### Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/register | Create new account |
-| POST | /api/login | Login & get JWT token |
+### Auth
+| Method | URL | Description |
+|--------|-----|-------------|
+| POST | /api/register | Create account |
+| POST | /api/login | Login |
 
 ### Todos (Protected)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/todos | Get user's todos |
-| POST | /api/todos | Create new todo |
-| PUT | /api/todos/<id> | Update todo |
-| DELETE | /api/todos/<id> | Delete todo |
+| Method | URL | Description |
+|--------|-----|-------------|
+| GET | /api/todos | Get todos |
+| POST | /api/todos | Create todo |
+| PUT | /api/todos/:id | Update todo |
+| DELETE | /api/todos/:id | Delete todo |
 
-### Admin (Admin Only)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/admin/users | View all users |
-| GET | /api/admin/todos | View all todos |
-
----
-
-## Key Technical Concepts
-
-### 1. JWT Authentication Flow
-```
-Register → Login → Get Token → Store in localStorage → Send with every request
-```
-
-### 2. Protected Routes
-```python
-@app.route('/api/todos')
-@token_required
-def get_todos(current_user):
-    # Only authenticated users can access
-    pass
-```
-
-### 3. Admin Routes
-```python
-@app.route('/api/admin/users')
-@admin_required
-def get_all_users(current_user):
-    # Only admins can access
-    pass
-```
-
-### 4. Conditional Rendering
-```javascript
-if (user.is_admin) {
-    // Show admin link
-}
-```
+### Admin (Part 7)
+| Method | URL | Description |
+|--------|-----|-------------|
+| GET | /api/admin/users | Get all users |
+| DELETE | /api/admin/users/:id | Delete user |
+| GET | /api/admin/stats | Get statistics |
 
 ---
 
-## Test Accounts
+## Self-Study
 
-After running the app, create a test admin:
-1. Go to the login page
-2. Click "Create Admin User"
-3. Login with:
-   - **Email:** admin@example.com
-   - **Password:** admin123
+Each `app.py` file contains:
+- **Self-Study Questions** - Test your understanding
+- **Activities** - Hands-on exercises to try
 
----
-
-## Learning Outcomes
-
-By completing this module, students will be able to:
-
-1. **Design Databases** - Create related tables with foreign keys
-2. **Build APIs** - Implement RESTful endpoints with Flask
-3. **Implement Auth** - Use JWT for stateless authentication
-4. **Protect Routes** - Create decorators for access control
-5. **Build UIs** - Create dynamic interfaces with Bootstrap & JavaScript
-6. **Think in Systems** - Understand User vs. Admin perspectives
+Look at the bottom of each `app.py` file!
 
 ---
 
-## Next Steps
+## Tips for Students
 
-After completing this module:
-1. Add more features (due dates, categories, search)
-2. Deploy to a cloud platform (Heroku, Railway, etc.)
-3. Add email verification
-4. Implement password reset
-5. Add real-time updates with WebSockets
+1. **Follow the order** - Part 1 → Part 2 → ... → Part 8
+2. **Read the code** - Don't just copy, understand it
+3. **Try activities** - Practice makes perfect
+4. **Break things** - Change code and see what happens
+5. **Use browser console** - F12 to see errors and test APIs
 
 ---
 
-Happy Coding! 🚀
+Happy Learning!
