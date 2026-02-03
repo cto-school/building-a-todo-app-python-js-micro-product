@@ -45,13 +45,8 @@ Understanding role-based access is essential for:
 ```
 part-7-admin-panel/
 ├── app.py              # Flask app with admin routes
-<<<<<<< HEAD
 ├── models.py           # User model with is_admin + stats methods
 ├── auth.py             # Auth helpers (get_current_user, get_admin_user)
-=======
-├── models.py           # User model with is_admin field
-├── auth.py             # Auth with get_current_user() and get_admin_user() helpers
->>>>>>> defea449ff1a15d0845d0f196ea8080b0d2c502f
 ├── requirements.txt    # Python dependencies
 ├── templates/
 │   ├── index.html      # Home page

@@ -1,7 +1,35 @@
 # Part 8: Homework - Add Priority Feature
 
-## Your Task
-Add a **priority** feature (low, medium, high) to todos.
+Congratulations on making it to the final part!
+
+This is your hands-on assignment to practice everything you've learned. You will add a **priority feature** (Low, Medium, High) to todos — working across the entire stack from database to frontend.
+
+The code has been prepared with commented sections for you to uncomment and complete. Follow the 7 steps below, and your app will have a fully working priority system!
+
+---
+
+## What You Will Practice
+
+By completing this homework, you will reinforce:
+
+- Adding new columns to database models
+- Extending API endpoints to handle new data
+- Updating frontend forms to collect new input
+- Displaying dynamic data with styled badges
+- Full-stack development workflow
+
+---
+
+## Why This Homework Matters
+
+Real-world development often involves:
+
+1. **Receiving a feature request** — "We need priorities on todos"
+2. **Planning the changes** — What needs to change? (DB, API, Frontend)
+3. **Implementing incrementally** — One layer at a time
+4. **Testing the feature** — Does it work end-to-end?
+
+This homework simulates that entire workflow.
 
 ---
 
